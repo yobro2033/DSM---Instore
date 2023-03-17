@@ -35,6 +35,10 @@ def multi_run_wrapper(args):
    return entering(*args)
 
 def entering(firstName, lastName, email):
+    email = email.split("@")
+    domainCatchall = ["dpdmail.com", "obdmail.com"]
+    domain = random.choice(domainCatchall)
+    email = email[0] + "+" + str(random.randint(1000, 99999)) + f"@{domain}"
     getAddress = False
     while getAddress == False:
         try:
